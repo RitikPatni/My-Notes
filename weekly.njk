@@ -1,0 +1,12 @@
+---
+layout: layouts/home.njk
+permalink: /weekly/
+eleventyNavigation:
+  key: Weekly Notes
+  order: 3
+---
+
+<h1>Weekly Notes</h1>
+
+{% set postslist = collections.weekly %}
+{% include "postslist.njk" %}
