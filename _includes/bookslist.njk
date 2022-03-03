@@ -1,0 +1,27 @@
+<div class="bookshelf">
+  {% for book in bookslist %}
+    <h1 class="year">{{ book.data.year }}</h1>
+    <div class="books">
+      <div class="book">
+        <a href="{{ book.data.url }}" aria-label="Buy {{ book.data.title }}">
+          <img src="{{ book.data.img }}" alt="">
+        </a>
+        <h2>{{ book.data.title }}</h2>
+        {% if book.data.title %}
+          <p>{{ book.data.subtitle }}</p>
+        {% endif %}
+        <p>{{ book.data.author }}</p>
+        {% if book.data.notes %}
+          <details>
+            <summary>{{ book.data.rating }}</summary>
+            <div class="notes">{{ book.data.notes | markdownify }}</div>
+          </details>
+        {% else %}
+          {% if book.data.rating %}
+            <p>{{ book.data.rating }}</p>
+          {% endif %}
+        {% endif %}
+      </div>
+    </div>
+  {% endfor %}
+</div>
